@@ -13,14 +13,10 @@ dotenv.config();
 
 const app = express();
 
-app.set("trust proxy", 1);
-
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://interview-buddy-1client.onrender.com",
-    ],
+    // connecting backend with frontend server
+    origin: "http://localhost:5173",
     credentials: true,
   })
 );
