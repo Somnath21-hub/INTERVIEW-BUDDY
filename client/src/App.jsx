@@ -10,7 +10,7 @@ import InterviewHistory from './pages/InterviewHistory';
 import InterviewReport from './pages/InterviewReport';
 import Pricing from "./pages/Pricing";
 
-export const ServerUrl = "https://localhost:8000";
+export const ServerUrl = "https://interview-buddy-rjor.onrender.com";
 
 function App() {
 
