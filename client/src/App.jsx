@@ -12,36 +12,39 @@ import Pricing from "./pages/Pricing";
 
 export const ServerUrl = "https://interview-buddy-assistant.onrender.com";
 
+// ✅ ADD THIS (important for cookies)
+axios.defaults.withCredentials = true;
+
 function App() {
 
+  const dispatch = useDispatch();
 
-  const dispatch=useDispatch()
   useEffect(() => {
     const getUser = async () => {
       try {
         const result = await axios.get(
-          ServerUrl + "/api/user/current-user",
-          { withCredentials: true })
-           dispatch(setUserData(result.data))
-    
+          `${ServerUrl}/api/user/current-user` // ✅ safer format
+        );
+
+        dispatch(setUserData(result.data));
+
       } catch (error) {
-        console.log(error)
-        dispatch(setUserData(null))
+        console.log(error);
+        dispatch(setUserData(null));
       }
     };
 
     getUser();
-  }, [dispatch]); // <-- important to avoid infinite calls
-  
+  }, [dispatch]);
 
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/auth" element={<Auth />} />
-       <Route path="/interview" element={<InterviewPage />} />
-          <Route path="/history" element={<InterviewHistory />} />
-          <Route path="/pricing" element={<Pricing/>} />
-          <Route path="/report/:id" element={<InterviewReport />} />
+      <Route path="/interview" element={<InterviewPage />} />
+      <Route path="/history" element={<InterviewHistory />} />
+      <Route path="/pricing" element={<Pricing />} />
+      <Route path="/report/:id" element={<InterviewReport />} />
     </Routes>
   );
 }
