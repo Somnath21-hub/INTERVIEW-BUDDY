@@ -13,10 +13,18 @@ dotenv.config();
 
 const app = express();
 
+// ✅ FIXED CORS
 app.use(
   cors({
+<<<<<<< HEAD
     // connecting backend with frontend server
     origin: process.env.FRONTEND_URL || "http://localhost:5173",
+=======
+    origin: [
+      "http://localhost:5173",
+      "https://interview-buddy-clnt.onrender.com"
+    ],
+>>>>>>> origin/main
     credentials: true,
   })
 );
