@@ -11,7 +11,7 @@ export const askAi = async (messages) => {
       {
         model: "openai/gpt-4o-mini", // ✅ OpenRouter format
         messages: messages,
-        max_tokens: 200
+        max_tokens: 1000
       },
       {
         headers: {

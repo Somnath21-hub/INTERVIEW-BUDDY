@@ -15,17 +15,16 @@ function InterviewReport() {
         console.log(result.data)
         setReport(result.data)
       } catch (error) {
-        
+        console.error("Fetch report error:", error)
       }
     }
     fetchReport()
-  },[])
+  },[id])
   if(!report)
   {
     return(
       <div className='min-h-screen flex items-center justify-center'>
-        <p className='text-gray-500 text-ig'></p>
-        Loading Report...
+        <p className='text-gray-500 text-lg'>Loading Report...</p>
       </div>
     )
   }
