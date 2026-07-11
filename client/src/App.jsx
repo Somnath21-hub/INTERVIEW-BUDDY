@@ -10,7 +10,9 @@ import InterviewHistory from './pages/InterviewHistory';
 import InterviewReport from './pages/InterviewReport';
 import Pricing from "./pages/Pricing";
 
-export const ServerUrl = "https://interview-buddy-assistant.onrender.com";
+export const ServerUrl = import.meta.env.MODE === "development"
+  ? "http://localhost:8000"
+  : "https://interview-buddy-assistant.onrender.com";
 
 // ✅ ADD THIS (important for cookies)
 axios.defaults.withCredentials = true;
